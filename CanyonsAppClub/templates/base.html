@@ -1,0 +1,19 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>App Club | {% block title %}{% endblock title %}</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <div id="heading">
+            {% block headingcontent %}{% endblock headingcontent %}
+        </div>
+        <div id="maincontent">
+            {% block maincontent %}{% endblock maincontent %}
+        </div>
+        <div id="footing">
+            {% block footingcontent %}{% endblock footingcontent %}
+        </div>
+    </body>
+</html>
