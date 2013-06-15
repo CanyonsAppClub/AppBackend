@@ -1,4 +1,17 @@
 *.log
 *.pot
 *.pyc
+
+#Django Settings file - sensitive info
+settings.py
+settings.pyc
 local_settings.py
+
+#IDE files
+.idea/
+
+#OSX Treats
+.DS_Store
+
+#VIM Tempfiles
+*.swp
