@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Listing of Icons{% endblock title %}
+{% block headingcontent %}<h1>Listing of Icons</h1>{% endblock headingcontent %}
+{% block maincontent %}
+    {% if icons %}
+        <ul style="list-style: none">
+        {% for icon in icons %}
+            <li style="display:inline"><span>{{ icon.icon_file.name }}</span><img src="{{ icon.icon_file.url }}" /></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No icons uploaded</p>
+    {% endif %}
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>{{ form.non_filed_errors }}</p>
+        <p>{{ form.icon_file.label }} {{ form.icon_file.help_text }}</p>
+        <p>
+            {{ form.icon_file.errors }}
+            {{ form.icon_file }}
+        </p>
+        <p><input type="submit" value="Upload" /></p>
+    </form>
+
+{% endblock maincontent %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Counter{% endblock title %}
+
+{% block headingcontent %}<h1>Welcome</h1>{% endblock headingcontent %}
+
+{% block maincontent %}
+    <ul>
+        {% for u in users %}
+            <li>{{ forloop.counter }}{{ u.first_name }} {{ u.last_name }} ({{ u.username }})</li>
+        {% endfor %}
+    </ul>
+{% endblock maincontent %}
+
+{% block footingcontent %}
+    <hr>
+    <p>Footer content goes here</p>
+{% endblock footingcontent %}
