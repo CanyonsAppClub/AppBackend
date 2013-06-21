@@ -4,8 +4,7 @@
             {% for event in events %}
             {
                     "id":{{ event.id }},
-                    "start_time":"{{ event.start_date }}",
-                    "end_time":"{{ event.end_date }}",
+                    "time_period":"{{ event.start_date|date:"D, M d fa" }} - {{ event.end_date|date:"fa" }}",
                     "location":"{{ event.location }}",
                     "location_id":"{{ event.location.id }}",
                     "title":"{{ event.event_title }}",

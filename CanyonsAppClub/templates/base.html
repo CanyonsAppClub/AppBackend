@@ -4,6 +4,28 @@
     <head>
         <title>App Club | {% block title %}{% endblock title %}</title>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Canyons App Club">
+        <meta name="author" content="Canyons App Club">
+        {% block mainstyles %}
+            <!-- <link href="{ static "css/custom-style.css" %}" rel="stylesheet" type="text/css" /> -->
+            <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+            <style type="text/css">
+              body {
+                padding-top: 60px;
+                padding-bottom: 40px;
+              }
+            </style>
+            <link href="{% static "css/bootstrap-responsive.css" %}" rel="stylesheet">
+            <!--[if lt IE 9]>
+                <script src="{% static "js/html5shiv.js" %}"></script>
+            <![endif]-->
+            <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static "ico/apple-touch-icon-144-precomposed.png" %}">
+            <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static "ico/apple-touch-icon-114-precomposed.png" %}">
+            <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static "ico/apple-touch-icon-72-precomposed.png" %}">
+            <link rel="apple-touch-icon-precomposed" href="{% static "ico/apple-touch-icon-57-precomposed.png" %}">
+            <link rel="shortcut icon" href="{% static "ico/favicon.png" %}">
+        {% endblock mainstyles %}
     </head>
     <body>
         <div id="heading">
@@ -15,5 +37,22 @@
         <div id="footing">
             {% block footingcontent %}<hr><p>Footer stuff goes here</p>{% endblock footingcontent %}
         </div>
+    {% block javascript-includes %}
+    {% load staticfiles %}
+    <!-- <script src="{% static "js/bootstrap.js" %}"></script> -->
+    <script src="{% static "js/juqery1.9.1.min.js" %}"></script>
+    <script src="{% static "js/bootstrap-transition.js" %}"></script>
+    <script src="{% static "js/bootstrap-alert.js" %}"></script>
+    <script src="{% static "js/bootstrap-modal.js" %}"></script>
+    <script src="{% static "js/bootstrap-dropdown.js" %}"></script>
+    <script src="{% static "js/bootstrap-scrollspy.js" %}"></script>
+    <script src="{% static "js/bootstrap-tab.js" %}"></script>
+    <script src="{% static "js/bootstrap-tooltip.js" %}"></script>
+    <script src="{% static "js/bootstrap-popover.js" %}"></script>
+    <script src="{% static "js/bootstrap-button.js" %}"></script>
+    <script src="{% static "js/bootstrap-collapse.js" %}"></script>
+    <script src="{% static "js/bootstrap-carousel.js" %}"></script>
+    <script src="{% static "js/bootstrap-typeahead.js" %}"></script>
+{% endblock javascript-includes %}
     </body>
 </html>

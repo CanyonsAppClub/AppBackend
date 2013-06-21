@@ -3,15 +3,17 @@
 {% block headingcontent %}<h1>Welcome</h1>{% endblock headingcontent %}
 {% block maincontent %}
     <h2>Events:</h2>
-    {% for event in events %}
-    <div class="calendar-event">
-        <img src="media/{{ event.location.location_icon.icon_file }}" alt="{{ event.location }} Icon" />
-        <h3>{{ event.event_title }}</h3>
-        <p>{{ event.event_subtitle }}</p>
-        <p>Event Location: {{ event.location.location_name }}</p>
-        <p>Start time: {{ event.start_date }}</p>
-        <p>End time: {{ event.end_date }}</p>
-    </div>
-    {% endfor %}
+    <ul class="thumbnails" style="padding:30px;">
+        {% for event in events %}
+        <li class="span4">
+            <img src="media/{{ event.location.location_icon.icon_file }}" alt="{{ event.location }} Icon" />
+            <h3>{{ event.event_title }}</h3>
+            <p>{{ event.event_subtitle }}</p>
+            <p>Event Location: {{ event.location.location_name }}</p>
+            <p>Start time: {{ event.start_date }}</p>
+            <p>End time: {{ event.end_date }}</p>
+        </li>
+        {% endfor %}
+    </ul>
 {% endblock maincontent %}
 {% block footingcontent %}{% endblock footingcontent %}

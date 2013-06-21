@@ -2,8 +2,8 @@ from django.contrib import admin
 from AppBackend.models import CalendarEvent, EventLocation, LocationIcon
 from django import forms
 from django.db import models
-# class CalendarEventAdmin(admin.ModelAdmin):
-#     pass
+class CalendarEventAdmin(admin.ModelAdmin):
+    pass
 
 # class EventLocationAdmin(admin.ModelAdmin):
 #     list_display = ('locationName')

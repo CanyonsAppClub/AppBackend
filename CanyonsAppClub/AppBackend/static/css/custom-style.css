@@ -1,0 +1,63 @@
+
+/* #-#-#-#-#-#-# Globals #-#-#-#-#-#-# */
+body, html {
+    height: 100%;
+}
+body {
+    background-color: #dfdfdf;
+    margin: 0px;
+    padding: 0px;
+}
+a:link {
+    color: #333333;
+    font-weight:bold;
+}
+a:visited {
+    color: #2f2f2f;
+    font-weight:bold;
+}
+
+/* Specify some general font stuff */
+p, h1, h2, h3, h4, h5, h6 {
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+.text {
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
+/* I find it easiest to set <ul>'s and <li>'s margins and padding to '0' */
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+li {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+ul.inline li {
+    display: inline;
+}
+
+/* #-#-#-#-#-#-# Header #-#-#-#-#-#-# */
+header {
+    background-color: #c8c8c8;
+}
+
+/* #-#-#-#-#-#-# Navigation #-#-#-#-#-#-# */
+nav {
+
+}
+
+/* #-#-#-#-#-#-# Footer #-#-#-#-#-#-# */
+div#main {
+
+}
+
+/* #-#-#-#-#-#-# Footer #-#-#-#-#-#-# */
+footer {
+
+}
+
+

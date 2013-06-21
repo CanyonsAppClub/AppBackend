@@ -39,4 +39,4 @@ class CalendarEvent(models.Model):
     start_date = models.DateTimeField('start date')
     end_date = models.DateTimeField('end date')
     def __unicode__(self):
-        return self.event_title
+        return self.event_title + " | " + str(self.start_date.date())
