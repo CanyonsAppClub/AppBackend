@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 from .forms import LocationIconForm
 from django.contrib.auth.models import User
 
@@ -14,10 +15,24 @@ from AppBackend.forms import LocationIconForm
 
 from AppBackend.models import CalendarEvent
 from AppBackend.models import EventLocation
+import json
+import sys
+
+from django.core import serializers
+
 
 def home(request):
     calendar_events = CalendarEvent.objects.all()
     return render(request, 'welcome.html', { 'events': calendar_events })
+
+def loc_test(request):
+    #jsonDecoder = json.JSONEncoder()
+    # event_title =
+    # event_subtitle
+    # start_date =
+    # end_date =
+    location = CalendarEvent.objects.all()
+    return render(request, 'encoding-test.json', { 'locations' : location })
 
 def count(request):
     users = User.objects.filter()
@@ -48,3 +63,11 @@ def app_calendar_list(request):
 def app_location_icon(reqeust):
     event_locations = EventLocation.objects.all()
     return render(reqeust, 'icon-reference.json', { 'locations': event_locations })
+
+def debug_view(request):
+    #uncooked_models = CalendarEvent.objects.all()
+    #location = CalendarEvent.
+    #return HttpResponse(serializers.serialize("json", location), mimetype='application/json')
+    #return HttpResponse(serializers.serialize("json", CalendarEvent.objects.all()), mimetype='application/json')
+    sysargs = sys.argv
+    return render(request, 'debug.html', { 'debug_items':sysargs})

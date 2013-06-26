@@ -2,8 +2,19 @@ from django.contrib import admin
 from AppBackend.models import CalendarEvent, EventLocation, LocationIcon
 from django import forms
 from django.db import models
-class CalendarEventAdmin(admin.ModelAdmin):
-    pass
+import json
+
+# class CalendarEventAdmin(admin.ModelAdmin):
+#     class Meta:
+#         model = CalendarEvent
+#         cleaned = ""
+#         for cleaned in model.objects.all():
+#                 cleaned = json.JSONEncoder().encode(cleaned)
+#         def clean_name(self):
+#             return self.cleaned
+
+#     exclude = ['title']
+#     form = CalendarEvent
 
 # class EventLocationAdmin(admin.ModelAdmin):
 #     list_display = ('locationName')

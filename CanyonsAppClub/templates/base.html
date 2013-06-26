@@ -28,13 +28,13 @@
         {% endblock mainstyles %}
     </head>
     <body>
-        <div id="heading">
+        <div id="heading" style="margin:20px">
             {% block headingcontent %}{% endblock headingcontent %}
         </div>
-        <div id="maincontent">
+        <div id="maincontent" style="margin:50px">
             {% block maincontent %}{% endblock maincontent %}
         </div>
-        <div id="footing">
+        <div id="footing" style="margin:20px">
             {% block footingcontent %}<hr><p>Footer stuff goes here</p>{% endblock footingcontent %}
         </div>
     {% block javascript-includes %}

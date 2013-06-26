@@ -16,10 +16,14 @@ urlpatterns = patterns('',
     #url(r'^manage/icons/', 'AppBackend.views.list_files', name='list'),
     url(r'^manage/icons/', 'AppBackend.views.list_files', name='listfiles'),
 
+    url(r'^loctest', 'AppBackend.views.loc_test', name="loc_test"),
+
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     url(r'app/events/', 'AppBackend.views.app_calendar_list', name='app_calendar_list'),
+
+    url(r'^debug', 'AppBackend.views.debug_view'),
 
     url(r'app/loc_icon_ref/', 'AppBackend.views.app_location_icon', name='app_location_icon'),
 

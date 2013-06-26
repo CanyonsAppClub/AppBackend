@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}DEBUG{% endblock title %}
+{% block headingcontent %}<h1>DEBUG</h1>{% endblock headingcontent %}
+{% block maincontent %}
+    <ul>
+        {% for debug_item in debug_items %}
+            <li>{{ debug_item }}</li>
+        {% endfor %}
+    </ul>
+{% endblock maincontent %}
+{% block footingcontent %}{% endblock footingcontent %}

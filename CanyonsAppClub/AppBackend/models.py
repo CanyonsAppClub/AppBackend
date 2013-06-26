@@ -3,6 +3,11 @@ from django.db import models
 #from django.forms import forms, DateField
 from django.contrib.auth.models import User
 
+# import json
+# from django.utils.functional import Promise
+# from django.utils.encoding import force_text
+# from django.core.serializers.json import DjangoJSONEncoder
+
 # class SchoolIndex:
 #     schooldictionary = {
 #         'schools' : (
@@ -13,6 +18,12 @@ from django.contrib.auth.models import User
 #             ('4','Jordan')
 #         )
 #     }
+
+# class LazyEncoder(DjangoJSONEncoder):
+#     def default(self, obj):
+#         if isinstance(obj, Promise):
+#             return force_text(obj)
+#         return super(LazyEncoder, self).default(obj)
 
 
 class AppUser(models.Model):

@@ -1,12 +1,12 @@
 {
     "icon-reference":{
-        "absolute_url":"media/".
+        "absolute_url":"media/",
         "locations":[
             {% for location in locations %}
                 {
                     "id":{{ location.id }},
-                    "location_name":"{{ location.location_name }}",
-                    "location_icon":"{{ location.location_icon.icon_file }}"
+                    "location_name":"{{ location.location_name }} ",
+                    "location_icon":"{{ location.location_icon.icon_file }} "
                 }
             {% if not forloop.last %},{% endif %}
             {% endfor %}

@@ -1,0 +1,7 @@
+{
+    "locations":[
+        {% for location in locations %}
+            "item":"{{ location.location_name }} "{% if not forloop.last %},{% endif %}
+        {% endfor %}
+    ]
+}
