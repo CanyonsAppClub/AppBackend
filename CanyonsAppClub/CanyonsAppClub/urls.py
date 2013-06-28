@@ -27,6 +27,10 @@ urlpatterns = patterns('',
 
     url(r'app/loc_icon_ref/', 'AppBackend.views.app_location_icon', name='app_location_icon'),
 
+    url(r'app/json/events/', 'AppBackend.views.app_json_event_list'),
+    url(r'app/json/locations/', 'AppBackend.views.app_json_location_list'),
+    url(r'app/json/icons/', 'AppBackend.views.app_json_icon_list'),
+
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

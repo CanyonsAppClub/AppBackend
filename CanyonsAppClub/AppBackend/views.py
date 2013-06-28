@@ -64,10 +64,23 @@ def app_location_icon(reqeust):
     event_locations = EventLocation.objects.all()
     return render(reqeust, 'icon-reference.json', { 'locations': event_locations })
 
+def app_json_event_list(request):
+    return HttpResponse(serializers.serialize("json", CalendarEvent.objects.all()), mimetype='application/json')
+
+def app_json_location_list(request):
+    return HttpResponse(serializers.serialize("json", EventLocation.objects.all()), mimetype='application/json')
+
+def app_json_icon_list(request):
+    return HttpResponse(serializers.serialize("json", LocationIcon.objects.all()), mimetype='application/json')
+
+
 def debug_view(request):
     #uncooked_models = CalendarEvent.objects.all()
     #location = CalendarEvent.
     #return HttpResponse(serializers.serialize("json", location), mimetype='application/json')
     #return HttpResponse(serializers.serialize("json", CalendarEvent.objects.all()), mimetype='application/json')
     sysargs = sys.argv
+    #sysargs.insert(1, "_meta", "nothing")
+    #sysargs.in
     return render(request, 'debug.html', { 'debug_items':sysargs})
+    #return HttpResponse(serializers.serialize("json", sysargs), mimetype='application/json')
