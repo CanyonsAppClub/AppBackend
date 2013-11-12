@@ -9,18 +9,15 @@
             <li class="span4">
                 <img src="/media/{{ event.location.icon_file }}" alt="{{ event.location }} Icon" />
                 <h3>{{ event.event_title }}</h3>
-                <p><strong>{{ event.event_subtitle }}</strong></p>
-                <p class="muted">Event Location: {{ event.location.location_name }}</p>
-                <p class="muted">Time: {{ event.pretty_time_format }}</p>
-{#                <p>Time: {{ event.start_date|date:"D, M d fa" }} - {{ event.end_date|date:"fa" }}</p>#}
-
+                <p>{{ event.event_subtitle }}</p>
+                <p>Event Location: {{ event.location.location_name }}</p>
+                <p>Time: {{ event.start_date|date:"D, M d fa" }} - {{ event.end_date|date:"fa" }}</p>
             </li>
             {% endfor %}
         </ul>
     {% else %}
         <h2>No Events Defined</h2>
-        <p style="color:#F0F0F0">To add an event, click here: <a href="/admin/">Admin Panel</a></p>
+        <p>To add an event, click here: <a href="/admin/">Admin Panel</a></p>
     {% endif %}
 {% endblock maincontent %}
-{% block footingcontent %}
-{% endblock footingcontent %}
+{% block footingcontent %}{% endblock footingcontent %}

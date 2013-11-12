@@ -14,22 +14,33 @@ urlpatterns = patterns('',
     url(r'^count', 'AppBackend.views.count', name='count'),
 
     #url(r'^manage/icons/', 'AppBackend.views.list_files', name='list'),
-    url(r'^manage/icons/', 'AppBackend.views.list_files', name='listfiles'),
+    # url(r'^manage/icons/', 'AppBackend.views.list_files', name='listfiles'),
 
     url(r'^loctest', 'AppBackend.views.loc_test', name="loc_test"),
 
     # Uncomment the admin/doc line below to enable admin documentation:
-    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    #url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
-    url(r'app/events/', 'AppBackend.views.app_calendar_list', name='app_calendar_list'),
+    # url(r'app/events/', 'AppBackend.views.app_calendar_list', name='app_calendar_list'),
 
     url(r'^debug', 'AppBackend.views.debug_view'),
 
-    url(r'app/loc_icon_ref/', 'AppBackend.views.app_location_icon', name='app_location_icon'),
+    # url(r'app/loc_icon_ref/', 'AppBackend.views.app_location_icon', name='app_location_icon'),
 
-    url(r'app/json/events/', 'AppBackend.views.app_json_event_list'),
-    url(r'app/json/locations/', 'AppBackend.views.app_json_location_list'),
-    url(r'app/json/icons/', 'AppBackend.views.app_json_icon_list'),
+    url(r'^app/json/events/', 'AppBackend.views.app_json_event_list'),
+    url(r'^app/json/locations/', 'AppBackend.views.app_json_location_list'),
+    #url(r'^app/json/announcements/', 'AppBackend.views.app_json_announcement_list'),
+    #url(r'^app/json/announcements/', 'AppBackend.views.app_json_robust_announcement_list'),
+    url(r'app/json/users/', 'AppBackend.views.username_from_id'),
+
+    url(r'^app/json/easy_events/', 'AppBackend.views.app_json_robust_event_list'),
+
+    url(r'^manage/events/', 'AppBackend.views.manage_events'),
+    url(r'^manage/icons/', 'AppBackend.views.manage_locations'),
+
+    (r'^login/$', 'AppBackend.views.user_login'),
+
+    (r'^announcements/$', 'AppBackend.views.announcement'),
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),

@@ -1,5 +1,9 @@
 from django.contrib import admin
-from AppBackend.models import CalendarEvent, EventLocation, LocationIcon
+from AppBackend.models import AppUser
+from AppBackend.models import CalendarEvent
+from AppBackend.models import EventLocation
+from AppBackend.models import Announcement
+#from AppBackend.models import LocationIcon
 from django import forms
 from django.db import models
 import json
@@ -27,6 +31,13 @@ import json
 # class EventLocationAdmin(admin.ModelAdmin):
 #     form = EventLocationForm
 
+class ArticleAdmin(admin.ModelAdmin):
+    def save_model(self, request, obj, form, change):
+        obj.created_by = request.user
+        obj.save()
+
+#admin.site.register(AppUser)
 admin.site.register(CalendarEvent)
 admin.site.register(EventLocation)
-admin.site.register(LocationIcon)
+admin.site.register(Announcement, ArticleAdmin)
+#admin.site.register(LocationIcon)

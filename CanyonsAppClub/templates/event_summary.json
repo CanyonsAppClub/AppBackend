@@ -1,0 +1,16 @@
+[
+    {% for event in events %}
+    {
+        "pk": {{ event.id }},
+        "fields": {
+            "event_title": "{{ event.event_title|escapejs }}",
+            "start_date": "{{ event.iso_start_date }}",
+            "location": "{{ event.location.location_name|escapejs }}",
+            "location_icon": "/media/{{ event.location.icon_file|escapejs }}",
+            "end_date": "{{ event.iso_end_date }}",
+            "event_subtitle": "{{ event.event_subtitle|escapejs }}"
+        }
+    }
+    {% if not forloop.last %},{% endif %}
+    {% endfor %}
+]

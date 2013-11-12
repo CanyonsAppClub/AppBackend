@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}Manage Events{% endblock title %}
+{% block headingcontent %}
+    <div class="span12">
+        <div class="span6">
+            <h1>Manage Events</h1>
+        </div>
+        <div class="span4">
+            <p>Welcome {% if user.first_name and user.last_name %}{{ user.first_name }} {{ user.last_name }} ({{ user.username }}){% else %}{{ user.username }}{% endif %}</p>
+        </div>
+        <div class="span2">
+            <form method="POST" action="/login/">
+                {% csrf_token %}
+                <input class="btn btn-danger" type="submit" name="logout" value="Logout"/>
+            </form>
+        </div>
+    </div>
+{% endblock headingcontent %}
+{% block maincontent %}
+    <div class="span12">
+    <h2>Events:</h2>
+    </div>
+        <ul class="thumbnails" style="padding:30px;">
+            {% for event in events %}
+            <li class="span4" id="event-{{ event.id }}">
+                <img src="/media/{{ event.location.icon_file }}" alt="{{ event.location }} Icon" />
+                <h3>{{ event.event_title }}</h3>
+                <p>{{ event.event_subtitle }}</p>
+                <p>Event Location: {{ event.location.location_name }}</p>
+{#                <p>Time: {{ event.start_date|date:"D, M d fa" }} - {{ event.end_date|date:"fa" }}</p>#}
+                <p>Time: {{ event.pretty_time_format }}</p>
+                <!-- if($(this).checked){console.log('sup'); $(this).parent().css('background-color', '#CCC')}else{$(this).parent().css('background-color', 'transparent')} -->
+                <!-- <input type="checkbox" name="{{ event.id }}" onclick="if(self.checked){console.log('nope')}"/> -->
+            </li>
+            {% empty %}
+                <li class="span4">
+                    <h2>No Events Defined</h2>
+                    <p>To add an event, click here: <a href="/admin/">Admin Panel</a></p>
+                </li>
+            {% endfor %}
+        </ul>
+    <div class="span12">
+        <div class="well">
+            <form method="POST" action="" id="item_form">
+                {% csrf_token %}
+                <input type="submit" name="deleteList" value="Delete" onClick="return confirm('Are you sure you\'d like to delete? This action cannot be reversed.')"/>
+            </form>
+        </div>
+    </div>
+{% endblock maincontent %}
+{% block footingcontent %}
+    <div class="span12">
+        <div class="input-append bootstrap-timepicker">
+            <input id="timepicker1" type="text" class="input-small">
+            <span class="add-on"><i class="icon-time"></i></span>
+        </div>
+        <script type="text/javascript">
+            $('#timepicker1').timepicker();
+        </script>
+    </div>
+{% endblock footingcontent %}
+{% block scripts %}
+<script>
+$(".span4").click(function(){
+    var event_id = $(this).attr('id');
+    if($(this).hasClass("selected")) {
+        //Uncheck
+        $('[name="selected-' + event_id + '"]').remove();
+        console.log("Was selected...");
+        $(this).css("background-color","transparent");
+        $(this).removeClass("selected");
+    } else {
+        //Check
+        $("#item_form").prepend('<input type="hidden" name="selected-' + event_id + '">');
+        console.log("Is not selected");
+        $(this).css("background-color","#B3D4FC");
+        $(this).addClass("selected");
+    }
+    //updateList();
+});
+/*
+function updateList() {
+    $(".span4").each(function(){
+        var blockId = $(this).attr("id");
+        var suspectElement = $('[name="delete-' + blockId + '"]');
+        if($(this).hasClass("selected") && !suspectElement.is('*')){
+            $("#item_form").prepend('<input type="hidden" name="delete-' + blockId + '">');
+        } else {
+            if(suspectElement.is('*')){
+                suspectElement.remove();
+            }
+        }
+    });
+}
+*/
+</script>
+{% endblock scripts %}

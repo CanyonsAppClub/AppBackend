@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Announcements{% endblock title %}
+{% block headingcontent %}<h1>Announcements</h1>{% endblock headingcontent %}
+{% block maincontent %}
+    {% if announcements.count > 0 %}
+        <h2>Announcements:</h2>
+        <ul class="thumbnails" style="padding:30px;">
+            {% for announce in announcements %}
+            <li class="span4">
+                <h3>{{ announce.title }}</h3>
+                <p>Created by: <strong>{{ announce.user }}</strong> on {{ announce.creation_date }}</p>
+                <p>{{ announce.content }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>No Announcements Defined</h2>
+        <p style="color:#F0F0F0">To add an announcement, click here: <a href="/admin/">Admin Panel</a></p>
+    {% endif %}
+{% endblock maincontent %}
+{% block footingcontent %}
+{% endblock footingcontent %}

@@ -1,0 +1,14 @@
+[
+    {% for announcement in announcements %}
+    {
+        "pk": 9,
+        "fields": {
+            "content": "{{ announcement.content|escapejs }}",
+            "creation_date": "{{ announcement.iso_date|escapejs }}",
+            "created_by": "{{ announcement.user|escapejs }}",
+            "title": "{{ announcement.title|escapejs }}"
+        }
+    }
+    {% if not forloop.last %},{% endif %}
+    {% endfor %}
+]

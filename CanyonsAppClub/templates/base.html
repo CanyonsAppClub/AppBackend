@@ -7,9 +7,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Canyons App Club">
         <meta name="author" content="Canyons App Club">
+
+        {% block javascript-includes %}
+            <!-- <script src="{% static "js/bootstrap.js" %}"></script> -->
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+            <script src="{% static "js/bootstrap-transition.js" %}"></script>
+            <script src="{% static "js/bootstrap-alert.js" %}"></script>
+            <script src="{% static "js/bootstrap-modal.js" %}"></script>
+            <script src="{% static "js/bootstrap-dropdown.js" %}"></script>
+            <script src="{% static "js/bootstrap-scrollspy.js" %}"></script>
+            <script src="{% static "js/bootstrap-tab.js" %}"></script>
+            <script src="{% static "js/bootstrap-tooltip.js" %}"></script>
+            <script src="{% static "js/bootstrap-popover.js" %}"></script>
+            <script src="{% static "js/bootstrap-button.js" %}"></script>
+            <script src="{% static "js/bootstrap-collapse.js" %}"></script>
+            <script src="{% static "js/bootstrap-carousel.js" %}"></script>
+            <script src="{% static "js/bootstrap-typeahead.js" %}"></script>
+
+            <script src="{% static "js/bootstrap-timepicker.js" %}"></script>
+        {% endblock javascript-includes %}
+
         {% block mainstyles %}
             <!-- <link href="{ static "css/custom-style.css" %}" rel="stylesheet" type="text/css" /> -->
-            <link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+            <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" />
+            <link href="{% static "css/bootstrap-timepicker.css" %}" rel="stylesheet" />
             <style type="text/css">
               body {
                 padding-top: 60px;
@@ -31,28 +52,17 @@
         <div id="heading" style="margin:20px">
             {% block headingcontent %}{% endblock headingcontent %}
         </div>
-        <div id="maincontent" style="margin:50px">
+        <div class="span12">
             {% block maincontent %}{% endblock maincontent %}
         </div>
         <div id="footing" style="margin:20px">
-            {% block footingcontent %}<hr><p>Footer stuff goes here</p>{% endblock footingcontent %}
+            {% block footingcontent %}<hr>
+                <div class="span12">
+                    <p>Copyright 2013 Canyons App Club</p>
+                </div>
+            {% endblock footingcontent %}
         </div>
-    {% block javascript-includes %}
-    {% load staticfiles %}
-    <!-- <script src="{% static "js/bootstrap.js" %}"></script> -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script src="{% static "js/bootstrap-transition.js" %}"></script>
-    <script src="{% static "js/bootstrap-alert.js" %}"></script>
-    <script src="{% static "js/bootstrap-modal.js" %}"></script>
-    <script src="{% static "js/bootstrap-dropdown.js" %}"></script>
-    <script src="{% static "js/bootstrap-scrollspy.js" %}"></script>
-    <script src="{% static "js/bootstrap-tab.js" %}"></script>
-    <script src="{% static "js/bootstrap-tooltip.js" %}"></script>
-    <script src="{% static "js/bootstrap-popover.js" %}"></script>
-    <script src="{% static "js/bootstrap-button.js" %}"></script>
-    <script src="{% static "js/bootstrap-collapse.js" %}"></script>
-    <script src="{% static "js/bootstrap-carousel.js" %}"></script>
-    <script src="{% static "js/bootstrap-typeahead.js" %}"></script>
-{% endblock javascript-includes %}
+
+        {% block scripts %}{% endblock scripts %}
     </body>
 </html>
